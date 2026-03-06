@@ -28,8 +28,8 @@ def display(head):
     elements = []
 
     while current:
-      elements.append(str(current.val))
-      current = current.next
+        elements.append(str(current.val))
+        current = current.next
     print(' -> '.join(elements))
 
 display(Head)
@@ -42,3 +42,17 @@ def search(head, value):
         current = current.next
     return False
 print(search(Head, 3))
+
+def insertAtHead(head, value):
+    new_node = SinglyLinkedListNode(value, next=head)
+    return new_node
+
+def insertAtTail(head, value):
+    new_node = SinglyLinkedListNode(value)
+    if not head:
+        return new_node
+    current = head
+    while current.next:
+        current = current.next
+    current.next = new_node
+    return head
